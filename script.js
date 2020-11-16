@@ -57,18 +57,18 @@ let arrCard = [
     { id: "10CHUON", nameImg: "./PNG/10C.png", point: 38, pointType: 10 },
     { id: "10RO", nameImg: "./PNG/10D.png", point: 39, pointType: 10 },
     { id: "10CO", nameImg: "./PNG/10H.png", point: 40, pointType: 10 },
-    { id: "11BICH", nameImg: "./PNG/JS.png", point: 41, pointType: 11 },
-    { id: "11CHUON", nameImg: "./PNG/JC.png", point: 42, pointType: 11 },
-    { id: "11RO", nameImg: "./PNG/JD.png", point: 43, pointType: 11 },
-    { id: "11CO", nameImg: "./PNG/JH.png", point: 44, pointType: 11 },
-    { id: "12BICH", nameImg: "./PNG/QS.png", point: 45, pointType: 12 },
-    { id: "12CHUON", nameImg: "./PNG/QC.png", point: 46, pointType: 12 },
-    { id: "12RO", nameImg: "./PNG/QD.png", point: 47, pointType: 12 },
-    { id: "12CO", nameImg: "./PNG/QH.png", point: 48, pointType: 12 },
-    { id: "13BICH", nameImg: "./PNG/KS.png", point: 49, pointType: 13 },
-    { id: "13CHUON", nameImg: "./PNG/KC.png", point: 50, pointType: 13 },
-    { id: "13RO", nameImg: "./PNG/KD.png", point: 51, pointType: 13 },
-    { id: "13CO", nameImg: "./PNG/KH.png", point: 52, pointType: 13 },
+    { id: "11BICH", nameImg: "./PNG/JS.png", point: 41, pointType: 10 },
+    { id: "11CHUON", nameImg: "./PNG/JC.png", point: 42, pointType: 10 },
+    { id: "11RO", nameImg: "./PNG/JD.png", point: 43, pointType: 10 },
+    { id: "11CO", nameImg: "./PNG/JH.png", point: 44, pointType: 10 },
+    { id: "12BICH", nameImg: "./PNG/QS.png", point: 45, pointType: 10 },
+    { id: "12CHUON", nameImg: "./PNG/QC.png", point: 46, pointType: 10 },
+    { id: "12RO", nameImg: "./PNG/QD.png", point: 47, pointType: 10 },
+    { id: "12CO", nameImg: "./PNG/QH.png", point: 48, pointType: 10 },
+    { id: "13BICH", nameImg: "./PNG/KS.png", point: 49, pointType: 10 },
+    { id: "13CHUON", nameImg: "./PNG/KC.png", point: 50, pointType: 10 },
+    { id: "13RO", nameImg: "./PNG/KD.png", point: 51, pointType: 10 },
+    { id: "13CO", nameImg: "./PNG/KH.png", point: 52, pointType: 10 },
   ];
   
   //VARIABLE GLOBAL ( BIẾN TOÀN CỤC )
@@ -77,7 +77,8 @@ let arrCard = [
   var arrPlayerPointEqual=[];
   
   //QUERY ELEMENT ( TRUY VẤN ELEMENT )
-
+    var mainGame=document.querySelector(".mainGame");
+    var p1=document.querySelector(".p1");
   
   //--------------------------------------------------------------------------------
   //PROCESS ( QUÁ TRÌNH )
@@ -95,8 +96,9 @@ let arrCard = [
   //distributionCard ( chia bài )
   function distributionCard() {
     var newCard = shuffleArray(arrCard);
-    for(let i=1;i<=nPlayer;i++){
-      let namePlayer= prompt("nhập tên người chơi thứ: " + i)
+    for(let i=0;i<nPlayer;i++){
+      let playi=i+1;
+      let namePlayer= prompt("nhập tên người chơi thứ: " + playi)
         let player={
             id: i,
             name:namePlayer,
@@ -109,7 +111,7 @@ let arrCard = [
         //push player to arrPlayers
         arrPlayers.push(player);
     }
-    // loadElementCardPlayers();
+    loadElementCardPlayers()
     // return arrPlayers; // return list arrPlayer befor distributionCard
   }
   //return playerMax || param (player1 so sanh player[n])
@@ -164,13 +166,50 @@ let arrCard = [
   }
   //func openCard
   function openCard(){
-    //load elemendCard
+    //showElementCardAll
+    showElementCardAll();
     setTimeout(alert(playerWin().name + " WIN!"), 10000);
   }
   //load Elenment
-//   function loadElementCardPlayers(){
+  function loadElementCardPlayers(){
+      for(let i=0;i<arrPlayers.length;i++){
+        let id=i+1;
+        let div = document.createElement("div");
+        div.setAttribute("class","player");
+        div.setAttribute("id", "p"+id);
+        div.textContent=arrPlayers[i].name;
+        mainGame.appendChild(div);
+        for(let j=1;j<=3;j++){
+          let pi=document.querySelector("#p"+id);
+          let div = document.createElement("div");
+          div.setAttribute("class","card");
+          div.setAttribute("id", "p"+id + "c"+j);
+          pi.appendChild(div);
+        }
+      }
       
-//   }
+  }
+  //showElementCardAll
+  function showElementCardAll(){
+    for(let i=0;i<arrPlayers.length;i++){
+      let id=i+1;
+      let pi = document.querySelector("#p"+id);
+      for(let j=1;j<=3;j++){
+        let idCardi=document.querySelector("#p"+id + "c"+j);
+        let img =document.createElement("img");
+        if(j==1){
+          img.setAttribute("src",arrPlayers[i].card1[0].nameImg);
+        }
+        if(j==2){
+          img.setAttribute("src",arrPlayers[i].card2[0].nameImg);
+        }
+        if(j==3){
+          img.setAttribute("src",arrPlayers[i].card3[0].nameImg);
+        }
+        idCardi.appendChild(img);
+      }
+    }
+  }
   //MAIN-------------------------------------------------------------------------------------------------------------
 
   //1.input n player
