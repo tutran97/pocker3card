@@ -5,7 +5,7 @@
 }
 .infoMainGame {
   background: palegreen;
-  background-image: url("./PNG/back_cards-07.png");
+  background-image: url('./PNG/back_cards-07.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -78,7 +78,7 @@
   border: 1px black solid;
   min-width: 30px;
   min-height: 60px;
-  background-image: url("./PNG/gray_back.png");
+  background-image: url('./PNG/gray_back.png');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 3px;
@@ -109,4 +109,14 @@ img {
   background-color: #11635f;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+/* table */
+ol {
+  background: #ff9999;
+  padding: 20px;
+}
+ol li {
+  background: #ffe5e5;
+  padding: 5px;
+  margin-left: 35px;
 }

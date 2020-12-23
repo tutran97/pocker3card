@@ -1,0 +1,11 @@
+{
+    "userPlayers": [
+      {
+        "id": 0,
+        "nameWin": "userNameJSON",
+        "listPlayers":["a","b","c"]
+      }
+    ],
+    "custom": [1, 2, 3]
+  }
+  
