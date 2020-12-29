@@ -3,11 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>pocker3card</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- FONTS POPPINS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- alertify -->
+    
+    <!-- //myCss -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="infoMainGame">welcome to casino</div>
+    <header class="container">
+      <div class="row">
+        <div class="col-4 ">
+          <div class="mt-2" style="width: 100px;">
+            <img
+              style="width: 100%; border-radius: 50px;"
+              src="./img/logo.png"
+              alt="opp..logo"
+            /> 
+          </div>
+           <h6 class="ml-2">TutranMVP</h6>
+        </div>
+        <div class="col-8 mt-1">
+                <b>luật chơi:</b></br>
+                <div class="luat">
+                  1.chọn số người chơi</br>
+                2.đặt tên từng người chơi</br>
+                3.bấm nút mở bài</br>
+                người chơi có số điểm cao nhất sẽ thắng</br>
+                trường hợp bằng nhau sẽ xét lá bài lớn.
+                </div>
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <div class="mainGame row text-center">
+      </div>
+      <div class="controllGame text-center">
+        <div id="isBtnPlayer" class="isBtnPlayer text-center">
+          <h4>chọn số người chơi</h4>
+        <button onclick="getPlayers(1)" id="btn1" type="button" class="btn btn-dark">1</button>
+        <button onclick="getPlayers(2)" id="btn2" type="button" class="btn btn-dark">2</button>
+        <button onclick="getPlayers(3)" id="btn3" type="button" class="btn btn-dark">3</button>
+        <button onclick="getPlayers(4)" id="btn4" type="button" class="btn btn-dark">4</button>
+        <button onclick="getPlayers(5)" id="btn5" type="button" class="btn btn-dark">5</button>
+        <button onclick="getPlayers(6)" id="btn6" type="button" class="btn btn-dark">6</button>
+        <button onclick="getPlayers(7)" id="btn7" type="button" class="btn btn-dark">7</button>
+        <button onclick="getPlayers(8)" id="btn8" type="button" class="btn btn-dark">8</button>
+        </div>
+        <div id="chiabai">
+          <button onclick="distributionCard()" style="width: 100px;margin: 3px;" type="button" class="btn btn-dark">chia bài</button>
+        </div>
+        <div id="opencard">
+          <button onclick="openCard()" style="width:100px;margin: 3px;" type="button" class="btn btn-dark">mở bài</button>
+        </div>
+        <div id="newgame">
+          <button onclick="location.reload()" style="width:100px;margin: 3px;" type="button" class="btn btn-dark">chơi lại</button>
+        </div>
+      </div>
+    </main>
+    <footer class="container">
+      <div class="text-footer pt-2">
+        <p>@Giấy phép thiết lập Mạng Xã Hội trên mạng số: 374/GP-BTTTT <br>
+          @Do Bộ Thông Tin và Truyền Thông cấp ngày: 07/08/2020 <br>
+          @Bản Quyền Thuộc TutranMVP Production.
+          version: 0.0.1 demo
+        </p>
+      </div>
+    </footer>
+    <!-- <div class="infoMainGame">welcome to casino</div>
     <div class="mainGame">
       <div>
         <button id="openCardButton" class="openCardButton" onclick="openCard()">
@@ -21,27 +93,14 @@
           NEW GAME
         </button>
       </div>
-      <!-- <div id="p1" class="player">p1 
-          <div id=c1 class="card"><img src="./PNG/2D.png" alt="img"></div>
-          <div id=c2 class="card"><img src="./PNG/AS.png" alt="img"></div>
-          <div id=c3 class="card"><img src="./PNG/JS.png" alt="img"></div> 
-        </div> -->
-      <!-- <div id="p2" class="player">p2 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div>
-        <div id="p3" class="player">p3 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div>
-        <div id="p4" class="player">p4 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div>
-        <div id="p5" class="player">p5 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div>
-        <div id="p6" class="player">p6 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div>
-        <div id="p7" class="player">p7 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div>
-        <div id="p8" class="player">p8 <div id="card1" class="card"></div><div id="card2" class="card"></div><div id="card3" class="card"></div> </div> -->
-      <div class="listPlayerWinHistory">
-        <h3>Lịch Sử Danh Sách Người Chiến Thắng</h3>
-        <ol>
-          <li>test</li>
-        </ol>
-      </div>
-    </div>
-
-    <script src="./script.js"></script>
-    <!-- //JS button opencard -->
+    </div> -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- alert -->
+    <script src="./bootbox/bootbox.min.js" ></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- myJS -->
+<script src="./script.js"></script>  
   </body>
 </html>

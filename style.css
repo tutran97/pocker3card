@@ -1,114 +1,86 @@
 * {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.infoMainGame {
-  background: palegreen;
-  background-image: url('./PNG/back_cards-07.png');
+body {
+  background-image: url('./img/body.jpg');
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  width: 100%;
-  min-height: 200px;
-
-  /* //font */
-  font-size: 30px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+}
+header {
+  min-height: 150px;
+  background-color: #212529;
+  color: white;
+}
+main {
+  background-color: #63eb6c;
+  min-height: 410px;
+  position: relative;
+}
+.controllGame {
+  bottom: 2px;
+  position: absolute;
+  right: 12px;
+}
+.luat {
+  font-size: 13px;
 }
 .mainGame {
-  position: relative;
-  background: lightpink;
-  min-height: 400px;
   display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0;
+}
+.btn {
+  width: 42px;
+  cursor: pointer;
+}
+footer {
+  background-color: #212529;
+  height: 100px;
+}
+.text-footer {
+  font-size: 12px;
+  color: white;
 }
 .player {
   display: flex;
   background: lightseagreen;
   padding: 3px;
-  margin: 3px;
-  width: 120px;
+  margin: 2px 5px;
+  width: 175px;
   border-radius: 5px;
 }
-#p1 {
-  position: absolute;
-  top: 21px;
-  left: 380px;
+#isBtnPlayer {
+  display: inline;
 }
-#p2 {
-  position: absolute;
-  top: 0px;
-  left: 510px;
+#chiabai {
+  display: none;
 }
-#p3 {
-  position: absolute;
-  top: 20px;
-  left: 640px;
+#opencard {
+  display: none;
 }
-#p4 {
-  position: absolute;
-  top: 210px;
-  left: 380px;
-}
-#p5 {
-  position: absolute;
-  top: 230px;
-  left: 510px;
-}
-#p6 {
-  position: absolute;
-  top: 210px;
-  left: 640px;
-}
-#p7 {
-  position: absolute;
-  top: 113px;
-  left: 365px;
-}
-#p8 {
-  position: absolute;
-  top: 113px;
-  left: 653px;
+#newgame {
+  display: none;
 }
 .card {
   border: 1px black solid;
-  min-width: 30px;
-  min-height: 60px;
+  min-width: 40px;
+  min-height: 80px;
   background-image: url('./PNG/gray_back.png');
   background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 3px;
 }
 img {
-  width: 100%;
-  height: 100%;
-}
-.openCardButton {
-  position: absolute;
-  top: 122px;
-  left: 501px;
-  padding: 15px 25px;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #20b2aa;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-.openCardButton:hover {
-  background-color: #11635f;
-}
-.openCardButton:active {
-  background-color: #11635f;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  width: 50px;
+  height: 76px;
 }
 /* table */
 ol {
@@ -119,4 +91,32 @@ ol li {
   background: #ffe5e5;
   padding: 5px;
   margin-left: 35px;
+}
+@media (max-width: 419px) {
+  .player {
+    width: 150px;
+  }
+}
+@media (max-width: 414px) {
+  .player {
+    width: 180px;
+  }
+}
+@media (max-width: 411px) {
+  .player {
+    width: 178px;
+  }
+}
+@media (max-width: 375px) {
+  .player {
+    width: 160px;
+  }
+}
+@media (max-width: 360px) {
+  .player {
+    width: 160px;
+  }
+  .mainGame {
+    width: 344px;
+  }
 }

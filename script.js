@@ -86,7 +86,7 @@ let arrCard = [
 ]
 
 //VARIABLE GLOBAL ( BIẾN TOÀN CỤC )
-var nPlayer = parseInt(prompt('nhập số người chơi: '))
+var nPlayer = 0
 var arrPlayers = []
 var arrPlayerPointEqual = []
 var arrHistoryPlayerWin = []
@@ -98,6 +98,13 @@ var p1 = document.querySelector('.p1')
 //--------------------------------------------------------------------------------
 //PROCESS ( QUÁ TRÌNH )
 //--------------------------------------------------------------------------------
+//1.GetPlayers
+function getPlayers(numPlayer) {
+  nPlayer = numPlayer
+  document.getElementById('isBtnPlayer').style.display = 'none'
+  document.getElementById('chiabai').style.display = 'inline'
+  bootbox.alert(`bạn đã chọn: ${numPlayer} người chơi!`)
+}
 //FUNCTION RETURN NEW ARRAY RAMDOM INDEX || parameter(arr)=> newArrRandom
 function shuffleArray(array) {
   let shuffleArray = [...array]
@@ -112,11 +119,15 @@ function shuffleArray(array) {
 function distributionCard() {
   var newCard = shuffleArray(arrCard)
   for (let i = 0; i < nPlayer; i++) {
+    //let namePlayer = null
     let playi = i + 1
-    let namePlayer = prompt('nhập tên người chơi thứ: ' + playi)
+    // bootbox.prompt(`nhập tên người chơi thứ ${playi}?`, function (result) {
+    //   namePlayer = result
+    // })
+    //let namePlayer = prompt('nhập tên người chơi thứ: ' + playi)
     let player = {
       id: i,
-      name: namePlayer,
+      name: 'bài người ' + playi,
       card1: newCard.slice(i, i + 1),
       card2: newCard.slice(i + 1, i + 2),
       card3: newCard.slice(i + 2, i + 3),
@@ -126,6 +137,9 @@ function distributionCard() {
     //push player to arrPlayers
     arrPlayers.push(player)
   }
+  document.getElementById('chiabai').style.display = 'none'
+  document.getElementById('opencard').style.display = 'inline'
+
   loadElementCardPlayers()
   // return arrPlayers; // return list arrPlayer befor distributionCard
 }
@@ -238,7 +252,6 @@ function maxCard(card1, card2, card3) {
 }
 //function openCard => return player win
 function playerWin() {
-  debugger
   let playerMax = arrPlayers[0]
 
   for (let i = 1; i < arrPlayers.length; i++) {
@@ -265,15 +278,14 @@ function playerWin() {
 }
 //func openCard
 function openCard() {
-  let openCardButton = document.querySelector('#openCardButton')
+  document.getElementById('opencard').style.display = 'none'
   //showElementCardAll
   showElementCardAll()
-  setTimeout(alert(playerWin().name + ' WIN!'), 10000)
-  openCardButton.addEventListener('click', hiddenOpenCardButton())
-  function hiddenOpenCardButton() {
-    document.getElementById('openCardButton').style.display = 'none'
-    document.getElementById('reGameButton').style.display = 'initial'
-  }
+  //setTimeout(alert(playerWin().name + ' WIN!'), 10000)
+  setTimeout(() => {
+    bootbox.alert(`${playerWin().name} chiến thắng!`)
+  }, 2000)
+  document.getElementById('newgame').style.display = 'inline'
 }
 //load Elenment
 function loadElementCardPlayers() {
@@ -319,7 +331,6 @@ document.getElementById('reGameButton').style.display = 'none'
 //1.input n player
 
 //2.distributionCard to players
-distributionCard()
 
 //3. Open card => win , after click button(openCard)
 
